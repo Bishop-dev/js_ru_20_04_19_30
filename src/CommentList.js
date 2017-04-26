@@ -21,6 +21,7 @@ export default class CommentList extends Component {
     getBody() {
         const {comments} = this.props;
         if (!comments) {
+            //можно <ul /> или null, а еще лучше - текст 'no comments'
             return (<ul></ul>);
         }
         const elements = comments.map(comment => <li key={comment.id}><Comment comment={comment}/></li>);
