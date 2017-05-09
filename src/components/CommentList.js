@@ -1,10 +1,11 @@
 import React, {Component} from 'react'
 import Comment from './Comment'
 import toggleOpen from '../decorators/toggleOpen'
+import PropTypes from 'prop-types'
 
 function CommentList(props) {
-    const {isOpen, toggleOpen} = props
-    const linkText = isOpen ? 'hide comments' : 'show comments'
+    const {isOpen, toggleOpen} = props;
+    const linkText = isOpen ? 'hide comments' : 'show comments';
 
     return (
         <div>
@@ -15,9 +16,9 @@ function CommentList(props) {
 }
 
 function getBody(props) {
-    const {comments = [], isOpen} = props
-    if (!isOpen) return null
-    if (!comments.length) return <p>No comments yet</p>
+    const {comments = [], isOpen} = props;
+    if (!isOpen) return null;
+    if (!comments.length) return <p>No comments yet</p>;
     return (
         <ul>
             {comments.map(comment => <li key={comment.id}><Comment comment={comment}/></li>)}
@@ -25,4 +26,8 @@ function getBody(props) {
     )
 }
 
-export default toggleOpen(CommentList)
+CommentList.propTypes = {
+    comments: PropTypes.array
+};
+
+export default toggleOpen(CommentList);

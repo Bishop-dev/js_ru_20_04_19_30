@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import CommnetList from './CommentList'
+import CommentList from './CommentList'
 import PropTypes from 'prop-types'
 
 class Article extends Component {
@@ -11,8 +11,8 @@ class Article extends Component {
         }),
         //from toggleOpen decorator
         isOpen: PropTypes.bool,
-        toggleOpen: PropTypes.func
-    }
+        toggleArticle: PropTypes.func.isRequired
+    };
 
 /*
     componentWillMount() {
@@ -20,7 +20,8 @@ class Article extends Component {
     }
 */
     shouldComponentUpdate(nextProps, nextState) {
-        return nextProps.isOpen != this.props.isOpen
+        console.log('shouldComponentUpdate');
+        return nextProps.isOpen != this.props.isOpen;
     }
 
     componentWillUpdate() {
@@ -28,10 +29,11 @@ class Article extends Component {
     }
 
     render() {
-        const {article, toggleOpen} = this.props
+        const {article, toggleArticle} = this.props;
+        console.log(toggleArticle);
         return (
             <section>
-                <h2 onClick={toggleOpen}>
+                <h2 onClick={toggleArticle}>
                     {article.title}
                 </h2>
                 {this.getBody()}
@@ -43,10 +45,10 @@ class Article extends Component {
         return this.props.isOpen && (
             <div>
                 {this.props.article.text}
-                <CommnetList comments={this.props.article.comments}/>
+                <CommentList comments={this.props.article.comments}/>
             </div>
         )
     }
 }
 
-export default Article
+export default Article;
