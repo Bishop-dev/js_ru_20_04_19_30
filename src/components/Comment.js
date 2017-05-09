@@ -10,8 +10,8 @@ function Comment({comment}) {
 }
 
 Comment.propTypes = {
-    text: PropTypes.string.isRequired,
-    user: PropTypes.string.isRequired,
+    text: PropTypes.string,
+    user: PropTypes.string,
 };
 
 export default Comment

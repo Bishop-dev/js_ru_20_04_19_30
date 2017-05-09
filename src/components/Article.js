@@ -11,7 +11,7 @@ class Article extends Component {
         }),
         //from toggleOpen decorator
         isOpen: PropTypes.bool,
-        toggleArticle: PropTypes.func.isRequired
+        toggleOpen: PropTypes.func.isRequired
     };
 
 /*
@@ -20,7 +20,6 @@ class Article extends Component {
     }
 */
     shouldComponentUpdate(nextProps, nextState) {
-        console.log('shouldComponentUpdate');
         return nextProps.isOpen != this.props.isOpen;
     }
 
@@ -29,11 +28,10 @@ class Article extends Component {
     }
 
     render() {
-        const {article, toggleArticle} = this.props;
-        console.log(toggleArticle);
+        const {article, toggleOpen} = this.props;
         return (
             <section>
-                <h2 onClick={toggleArticle}>
+                <h2 onClick={toggleOpen}>
                     {article.title}
                 </h2>
                 {this.getBody()}

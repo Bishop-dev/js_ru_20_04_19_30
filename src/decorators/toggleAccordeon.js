@@ -11,9 +11,8 @@ export default (OriginalComponent) => class DecoratedComponent extends BasicComp
     }
 
     toggleArticle = id => ev => {
-        console.log('ololo');
         this.setState({
-            openArticleId: id
+            openArticleId: (this.state.openArticleId !== id) ? id : null
         })
     }
 
