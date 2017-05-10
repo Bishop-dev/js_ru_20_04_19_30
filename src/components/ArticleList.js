@@ -25,6 +25,7 @@ function ArticleList(props) {
 ArticleList.propTypes = {
     articles: PropTypes.array,
     toggleArticle: PropTypes.func.isRequired
+    //еще openArticleId
 };
 
 export default toggleAccordeon(ArticleList);
