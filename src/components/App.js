@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ArticleList from './ArticleList'
 import Chart from './Chart'
 import UserForm from './UserForm'
+import Filter from './Filters/Calendar'
 import Select from 'react-select'
 import 'react-select/dist/react-select.css'
 
@@ -31,6 +32,7 @@ class App extends Component {
         return (
             <div>
                 <UserForm />
+                <Filter/>
                 <a href = "#" onClick = {this.updateCounter}>update chart</a>
                 <Select options = {options} value = {this.state.selection}
                         onChange = {this.handleSelectionChange}
