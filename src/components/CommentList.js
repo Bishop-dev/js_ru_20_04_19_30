@@ -62,6 +62,7 @@ CommentList.propTypes = {
 export default connect((state) => ({
     comments: state.comments,
     articleId: state.articleId,
+    //здесь так просто уже не выйдет, ведь ты загружаешь не все комменты сразу, а отдельно для каждой статьи
     isLoaded: state.comments.loaded,
     isLoading: state.comments.loading
 }), {loadComments})(toggleOpen(CommentList))
