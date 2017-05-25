@@ -23,7 +23,9 @@ export default (comments = new DefaultReducerState(), action) => {
             return comments.set('loading', true);
         case LOAD_ALL_COMMENTS + SUCCESS:
             return comments
+                //каждый раз перезатираешь комменты, используй mergeIn
                 .set('entities', arrayToMap(payload.response, CommentModel))
+                //а если несколько статей сразу будут грузиться?
                 .set('articleId', payload.articleId)
                 .set('loading', false)
                 .set('loaded', true);
